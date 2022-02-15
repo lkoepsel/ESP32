@@ -1,5 +1,5 @@
-# ESP32: 
-Exploring the ESP32 SoC using the Arduino Framework
+# ESP32
+Exploring the ESP32 SoC using the Arduino Framework, Random Nerd Tutorials and the ESP32 examples from Espressif.
 ## Code
 ### blink:
 * basic blink program used to test tool chain
@@ -11,9 +11,10 @@ Exploring the ESP32 SoC using the Arduino Framework
 	* serve.h/cpp - server code 
 	* serve_pages.h/cpp - web pages to be displayed
 ### RNT_WebManager:
-* [RNT_WebManager](https://randomnerdtutorials.com/esp32-wi-fi-manager-asyncwebserver/), original to be modified similar to WiFiAP. I like RNT's approach to using files to serve index.html and style.css, and as they note, the main file is a bit large and complicated. I'll create a new version which is modular for easier development and maintenence.
-### [Dashboard]:
-* modular approach to RNT_Webmanager.
+* [RNT_WebManager](https://randomnerdtutorials.com/esp32-wi-fi-manager-asyncwebserver/), original to be modified similar to WiFiAP. I like RNT's approach to using files to serve index.html and style.css, however the WebManager aspect is overkill for what I need. I'll retain the Data file and re-make the .ino file.
+## Boards
+* [Adafruit Feather ESP32](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/overview)
+* [Dev Board from DOIT] - Identifies as a NodeMCU-32S
 
 ## Sources
 * [arduino-esp32 examples](https://github.com/espressif/arduino-esp32/tree/master/libraries/WiFi/examples)
