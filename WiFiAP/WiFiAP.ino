@@ -15,9 +15,11 @@ const char *password = SECRET_PASS;
 WiFiServer server(WEB_PORT);
 
 void setup() {
-  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
 
-  Serial.begin(115200);
+  Serial.begin(921600);
   Serial.println();
   Serial.println("Configuring access point...");
 
