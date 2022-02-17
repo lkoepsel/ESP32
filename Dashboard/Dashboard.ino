@@ -9,12 +9,16 @@
 #include "arduino_secrets.h"
 #include "serve.h"
 
-// Set these to your desired credentials.
+// Serial Port Constants and Variables
+#define SERIAL_BAUD 921600
+
+// Access Point Constants and Variables
 const char *ssid = SECRET_AP;
 const char *password = SECRET_PASS;
 
-//**** WiFiServer server(WEB_PORT);
-// Create AsyncWebServer object
+
+// Create AsyncWebServer 
+#define WEB_PORT 80
 AsyncWebServer server(WEB_PORT);
 
 void setup() {
@@ -26,9 +30,13 @@ void setup() {
     Serial.println("An Error has occurred while mounting SPIFFS");
     return;
     }
+    // Card 1: configure LED ON/OFF properties
     pinMode(LED1, OUTPUT);
-    pinMode(LED2, OUTPUT);
-    pinMode(LED3, OUTPUT);
+
+    // Card 2: configure GPIO PWM properties
+    ledcSetup(LEDCHANNEL, FREQUENCY, RESOLUTION);
+    ledcAttachPin(LED2, LEDCHANNEL);
+    ledcWrite(LEDCHANNEL, sliderValue.toInt());
 
     Serial.begin(921600);
     Serial.println();
