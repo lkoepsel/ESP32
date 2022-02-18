@@ -8,15 +8,7 @@
 // ON1/OFF1 Properties
 #define LED1 32
 
-// setting Slider/PWM properties
-// #define LED2 33
-// #define FREQUENCY 5000
-// #define LEDCHANNEL 0
-// #define RESOLUTION 8
-// extern const char* slider_input;
-// extern String sliderValue;
-
-// Card 1 and Card 2 processor
+// Card 1 processor
 String proc_c1(const String& var);
 
 void card_1(AsyncWebServer *server);

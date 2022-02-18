@@ -6,21 +6,8 @@
 #include <SPIFFS.h>
 #include "home.h"
 #include "card_1.h"
+#include "card_0.h"
 #include "card_2.h"
-
-// ON1/OFF1 Properties
-// #define LED1 32
-
-// setting Slider/PWM properties
-// #define LED2 33
-// #define FREQUENCY 5000
-// #define LEDCHANNEL 0
-// #define RESOLUTION 8
-// extern const char* slider_input;
-// extern String sliderValue;
-
-// Card 1 and Card 2 processor
-// String processor(const String& var);
 
 void serve(AsyncWebServer *server);
 #endif

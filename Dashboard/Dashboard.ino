@@ -8,6 +8,7 @@
 #include <SPIFFS.h>
 #include "arduino_secrets.h"
 #include "serve.h"
+#include "card_0.h"
 #include "card_1.h"
 #include "card_2.h"
 
@@ -33,6 +34,7 @@ void setup() {
     return;
     }
     // Card 1: configure LED ON/OFF properties
+    pinMode(LED0, OUTPUT);
     pinMode(LED1, OUTPUT);
 
     // Card 2: configure GPIO PWM properties
