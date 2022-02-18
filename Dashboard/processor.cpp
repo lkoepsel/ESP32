@@ -6,10 +6,12 @@ String sliderValue = "0";
 // Card processor()
 // Replaces template placeholders with values 
 String processor(const String& var){
+    // processor local variables, add them here and not in
+    // card sections 
     String ledState0;
     String ledState1;
 
-    Serial.println(var);
+    //debug* Serial.println(var);
 
     // Card 0 Processing
     if(var == "STATE0"){

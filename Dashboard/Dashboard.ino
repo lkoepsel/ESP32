@@ -1,5 +1,6 @@
 /*
   Dashboard.ino creates a WiFi access point and starts the Asynch Server
+  If you are adding code here, you are probably doing something wrong.
 */
 
 #include <WiFi.h>

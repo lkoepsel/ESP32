@@ -2,6 +2,8 @@
 
 extern AsyncWebServer server();
 
+// Note the server is a pointer when entering serve(),
+// it doesn't need to be dereferenced again.
 void serve(AsyncWebServer *server) {
     //****** Home Page with style, icon files ******
     home(server);
