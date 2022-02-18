@@ -2,22 +2,6 @@
 
 extern AsyncWebServer server();
 
-// Card 2: setting Slider/PWM properties
-const char* slider_input = "value";
-String sliderValue = "0";
-
-// Card 2: processor()
-// Replaces placeholder and sends slider value to PWM
-String proc_c2(const String& var){
-
-    // Card 2 Processing
-    if (var == "SLIDERVALUE"){
-      return sliderValue;
-    }
-    return String();
-}
-
-
 void card_2(AsyncWebServer *server) {
 
     // Send a GET request to /slider?value=<inputMessage>
