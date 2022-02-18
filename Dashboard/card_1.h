@@ -1,15 +1,12 @@
-#ifndef SERVE
-#define SERVE
+#ifndef CARD_1
+#define CARD_1
 
 #include <WiFi.h>
 #include <ESPAsyncWebServer.h>
 #include <SPIFFS.h>
-#include "home.h"
-#include "card_1.h"
-#include "card_2.h"
 
 // ON1/OFF1 Properties
-// #define LED1 32
+#define LED1 32
 
 // setting Slider/PWM properties
 // #define LED2 33
@@ -20,7 +17,7 @@
 // extern String sliderValue;
 
 // Card 1 and Card 2 processor
-// String processor(const String& var);
+String proc_c1(const String& var);
 
-void serve(AsyncWebServer *server);
+void card_1(AsyncWebServer *server);
 #endif

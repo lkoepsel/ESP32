@@ -8,6 +8,8 @@
 #include <SPIFFS.h>
 #include "arduino_secrets.h"
 #include "serve.h"
+#include "card_1.h"
+#include "card_2.h"
 
 // Serial Port Constants and Variables
 #define SERIAL_BAUD 921600

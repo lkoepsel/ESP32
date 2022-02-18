@@ -1,43 +1,34 @@
-#include "serve.h"
+#include "card_1.h"
 
 extern AsyncWebServer server();
-
-// Card 2: setting Slider/PWM properties
-// const char* slider_input = "value";
-// String sliderValue = "0";
 
 // Card 1 and Card 2: processor()
 // Replaces placeholder with LED state value and 
 // sends slider value to PWM
-// String processor(const String& var){
-//     String ledState1;
+String proc_c1(const String& var){
+    String ledState1;
 
-//     Serial.println(var);
+    Serial.println(var);
 
-//     // Card 1 Processing
-//     if(var == "STATE1"){
-//         if(digitalRead(LED1)){
-//           ledState1 = "ON";
-//         }
-//         else{
-//           ledState1 = "OFF";
-//         }
-//         Serial.print(ledState1);
-//         return ledState1;
-//     }
+    // Card 1 Processing
+    if(var == "STATE1"){
+        if(digitalRead(LED1)){
+          ledState1 = "ON";
+        }
+        else{
+          ledState1 = "OFF";
+        }
+        Serial.print(ledState1);
+        return ledState1;
+    }
 
-//     // Card 2 Processing
-//     if (var == "SLIDERVALUE"){
-//       return sliderValue;
-//     }
-//     return String();
-// }
+    return String();
+}
 
 
-void serve(AsyncWebServer *server) {
+void card_1(AsyncWebServer *server) {
     //****** Home Page with style, icon files ******
-    home(server);
-    // // Route for root / web page
+    // Route for root / web page
     // server->on("/", HTTP_GET, [](AsyncWebServerRequest *request){
     // request->send(SPIFFS, "/index.html", String(), false, processor);
     // });
@@ -70,22 +61,20 @@ void serve(AsyncWebServer *server) {
 
     //****** Card 1: GPIO Pin On/OFF ******
     // Route to set GPIO to HIGH
-    card_1(server);
-    // server->on("/on1", HTTP_GET, [](AsyncWebServerRequest *request){
-    // digitalWrite(LED1, HIGH);    
-    // request->send(SPIFFS, "/index.html", String(), false, processor);
-    // });
+    server->on("/on1", HTTP_GET, [](AsyncWebServerRequest *request){
+    digitalWrite(LED1, HIGH);    
+    request->send(SPIFFS, "/index.html", String(), false, proc_c1);
+    });
 
-    // // Route to set GPIO to LOW
-    // server->on("/off1", HTTP_GET, [](AsyncWebServerRequest *request){
-    // digitalWrite(LED1, LOW);    
-    // request->send(SPIFFS, "/index.html", String(), false, processor);
-    // });
+    // Route to set GPIO to LOW
+    server->on("/off1", HTTP_GET, [](AsyncWebServerRequest *request){
+    digitalWrite(LED1, LOW);    
+    request->send(SPIFFS, "/index.html", String(), false, proc_c1);
+    });
     //******End of Card 1: GPIO Pin On/OFF ******
 
     //****** Card 2: GPIO/PWM Slider ******
     // Send a GET request to /slider?value=<inputMessage>
-    card_2(server);
     // server->on("/slider", HTTP_GET, [] (AsyncWebServerRequest *request) {
     //   String inputMessage;
     //   // GET input1 value on /slider?value=<inputMessage>
@@ -100,5 +89,5 @@ void serve(AsyncWebServer *server) {
     //   Serial.println(inputMessage);
     //   request->send(200, "text/plain", "OK");
     // });
-    // //****** End of Card 2: GPIO/PWM Slider ******    
+    //****** End of Card 2: GPIO/PWM Slider ******    
 }
